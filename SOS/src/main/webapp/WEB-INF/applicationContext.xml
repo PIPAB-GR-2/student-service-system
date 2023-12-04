@@ -18,7 +18,29 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
         <property name="username" value=""/>
         <property name="password" value=""/>
     </bean>
-    <context:component-scan base-package="pl.edu.wwsis.pipab"/>
+
+    <bean id="entityManagerFactoryBean"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="pl.edu.wwsis.pipab.sos.model"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="false"/>
+                <property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect"/>
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactoryBean"/>
+    </bean>
+    <context:component-scan base-package="pl.edu.wwsis.pipab.sos"/>
     <!-- Chcemy automatycznie obsługiwać wszystkie klasy z adnotacjami w tym pakiecie. UWAGA!!! każdy projekt może mieć oczywiście inna strukturę pakietów-->
 
     <context:annotation-config/>

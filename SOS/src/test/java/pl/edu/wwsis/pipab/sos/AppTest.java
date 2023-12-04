@@ -1,4 +1,4 @@
-package pl.edu.wwsis.pipab;
+package pl.edu.wwsis.pipab.sos;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
