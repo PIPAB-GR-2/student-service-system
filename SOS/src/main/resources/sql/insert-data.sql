@@ -50,8 +50,8 @@ INSERT INTO book (id, name, serial_number) VALUES
 INSERT INTO account (id, login, password, email, account_type_id, account_status_id) VALUES
 (1, 'admin', 'admin123', 'admin@example.com', 1, 1),
 (2, 'teacher1', 'teacherpass', 'teacher1@example.com', 2, 1),
-(3, 'student1', 'studentpass', 'student1@example.com', 3, 1);
-(4, 'student2', 'studentpass2', 'student2@example.com', 3, 1),
+(3, 'student1', 'studentpass', 'student1@example.com', 3, 1),
+(4, 'student2', 'studentpass2', 'student2@example.com', 3, 1);
 
 -- Insert into student table
 INSERT INTO student (id, account_id, name, surname, birthday_date, index_number, pesel_number) VALUES
