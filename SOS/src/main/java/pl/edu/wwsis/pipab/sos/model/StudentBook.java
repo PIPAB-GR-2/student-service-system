@@ -1,4 +1,6 @@
-package pl.edu.wwsis.pipab.sos;
+package pl.edu.wwsis.pipab.sos.model;
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,22 +17,31 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "book")
+@Table(name = "student_book")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Book {
+public class StudentBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = true, length = 100)
-    private String name;
+    @Column(name = "student_id", nullable = false)
+    private Long studentId;
 
-    @Column(name = "serial_number", nullable = false, unique = true)
-    private Long serialNumber;
+    @Column(name = "book_id", nullable = false)
+    private Long bookId;
+
+    @Column(name = "student_book_status_id", nullable = false)
+    private Long studentBookStatusId;
+
+    @Column(name = "borrow_date", nullable = true)
+    private Date borrowDate;
+
+    @Column(name = "return_date", nullable = true)
+    private Date returnDate;
 }

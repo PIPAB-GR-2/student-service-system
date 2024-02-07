@@ -1,4 +1,4 @@
-package pl.edu.wwsis.pipab.sos;
+package pl.edu.wwsis.pipab.sos.model;
 
 import java.sql.Date;
 
@@ -17,34 +17,31 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "student")
+@Table(name = "class")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Student {
+public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "account_id", nullable = false)
-    private Long accountId;
-
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name", nullable = false, length = 100, unique = true)
     private String name;
 
-    @Column(name = "surname", nullable = false, length = 50)
-    private String surname;
+    @Column(name = "description", nullable = true, length = 255)
+    private String description;
 
-    @Column(name = "birthday_date", nullable = true)
-    private Date birthdayDate;
+    @Column(name = "date", nullable = true)
+    private Date date;
 
-    @Column(name = "index_number", unique = true, nullable = false)
-    private Long indexNumber;
+    @Column(name = "term", nullable = false)
+    private Integer term;
 
-    @Column(name = "pesel_number", unique = true, nullable = false)
-    private Long peselNumber;
+    @Column(name = "class_type_id", nullable = false)
+    private Long classTypeId;
 }

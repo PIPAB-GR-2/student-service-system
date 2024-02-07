@@ -1,4 +1,4 @@
-package pl.edu.wwsis.pipab.sos;
+package pl.edu.wwsis.pipab.sos.model;
 
 import lombok.*;
 
@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "student_book_status")
-public class StudentBookStatus {
+@Table(name = "class_type")
+public class ClassType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

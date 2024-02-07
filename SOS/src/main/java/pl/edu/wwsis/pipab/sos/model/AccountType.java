@@ -1,4 +1,4 @@
-package pl.edu.wwsis.pipab.sos;
+package pl.edu.wwsis.pipab.sos.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

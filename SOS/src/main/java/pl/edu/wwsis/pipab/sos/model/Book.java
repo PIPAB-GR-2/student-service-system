@@ -1,4 +1,4 @@
-package pl.edu.wwsis.pipab.sos;
+package pl.edu.wwsis.pipab.sos.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,19 +15,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "payment_status")
+@Table(name = "book")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class PaymentStatus {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false, length = 30, unique = true)
+    @Column(name = "name", nullable = true, length = 100)
     private String name;
+
+    @Column(name = "serial_number", nullable = false, unique = true)
+    private Long serialNumber;
 }
